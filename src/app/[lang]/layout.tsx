@@ -1,6 +1,8 @@
-import "./globals.scss";
+import Header from "@/components/Home/Header/Header";
+import "../../../globals.scss";
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
+import { getDictionary } from "./dictionaries";
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
@@ -15,15 +17,21 @@ export const metadata: Metadata = {
     "The name peso was given to the 8-real silver coin introduced in 1497, minted at 83⁄8 pesos to a Castilian mark. It was minted in large quantities after the discovery of silver in Mexico.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
+  const dict = await getDictionary(lang);
   return (
-    <html lang="en">
+    <html lang={lang}>
       <head />
-      <body className={robotoCondensed.className}>{children}</body>
+      <body className={robotoCondensed.className}>
+        <Header lng={lang} textTr={dict.main} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -43,16 +43,16 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        "border-main-top": "url(/assets/img/border/border-top.png)",
-        "border-main-left": "url(/assets/img/border/border-left.png)",
-        "border-main-right": "url(/assets/img/border/border-right.png)",
-        "border-main-bottom": "url(/assets/img/border/border-bottom.png)",
+        "border-main-top": "url(public/assets/img/border/border-top.png)",
+        "border-main-left": "url(public/assets/img/border/border-left.png)",
+        "border-main-right": "url(public/assets/img/border/border-right.png)",
+        "border-main-bottom": "url(public/assets/img/border/border-bottom.png)",
         "countdown-timer-bg-mob":
-          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(../assets/img/home/bg-desk-2x.jpg);",
+          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(public/assets/img/home/bg-desk-2x.jpg);",
         "countdown-timer-bg-desk":
-          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(../assets/img/home/bg-desk-2x.jpg);",
+          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(public/assets/img/home/bg-desk-2x.jpg);",
         "countdown-timer-bg-tab":
-          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(../assets/img/home/bg-tab-2x.jpg);",
+          "linear-gradient(var(--shadow-background), var(--shadow-background)),url(public/assets/img/home/bg-tab-2x.jpg);",
         "mobile-header":
           "url('../components/hero/img/mobile/hero-bg-mob-1-1x.jpg')",
         "tablet-header":
