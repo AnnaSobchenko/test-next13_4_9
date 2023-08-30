@@ -1,4 +1,4 @@
-import { NewsTextFCComponentsProps } from "@/interfaces/Props.interface";
+import { LanguageFCComponentsProps } from "@/interfaces/Props.interface";
 import { FC } from "react";
 import localFont from "next/font/local";
 import dataNews from "../../../public/data/dataNews.json";
@@ -8,17 +8,17 @@ const myFont = localFont({
   display: "swap",
 });
 
-const News: FC<NewsTextFCComponentsProps> = async ({ textTr }) => {
+const News: FC<LanguageFCComponentsProps> = async ({ lang }) => {
   const textAccentFont = myFont.className;
   return (
     <div className="layout pt-20">
       <ul>
-        {dataNews.map(({ id, img }) => (
+        {dataNews.map(({ id, nameEn, nameUa, textEn, textUa, img }) => (
           <li key={id} className="pb-8 last:pb-14">
             <h2
               className={`text-center mb-5 text-xl md:text-2xl ${textAccentFont}`}
             >
-              {`${textTr}.${id}.name`}
+              {lang === "en" ? nameEn : nameUa}
             </h2>
             <div className="md:flex gap-4 justify-center">
               <img
@@ -27,7 +27,7 @@ const News: FC<NewsTextFCComponentsProps> = async ({ textTr }) => {
                 className="md:w-[450px] md:h-[250px] sm:mb-4"
               />
               <p className="text-sm text-opacity-font-2 text-sans text-justify mb-6 lg:text-lg">
-                {`${textTr}.${id}.text`}
+                {lang === "en" ? textEn : textUa}
                 {id}
               </p>
             </div>

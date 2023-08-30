@@ -1,8 +1,9 @@
-import Header from "@/components/Home/Header/Header";
+import Header from "@/components/Header/Header";
 import "../../../globals.scss";
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
 import { getDictionary } from "./dictionaries";
+import Footer from "@/components/Footer/Footer";
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
@@ -29,8 +30,9 @@ export default async function RootLayout({
     <html lang={lang}>
       <head />
       <body className={robotoCondensed.className}>
-        <Header lng={lang} textTr={dict.main} />
+        <Header lang={lang} textTr={dict.main} />
         {children}
+        <Footer lang={lang} />
       </body>
     </html>
   );

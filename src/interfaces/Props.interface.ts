@@ -1,5 +1,5 @@
 export interface LanguageFCComponentsProps {
-  lng: string;
+  lang: string;
 }
 export interface TextFCComponentsProps {
   textTr: {
@@ -16,13 +16,16 @@ export interface NewsTextFCComponentsProps {
 }
 
 export interface LngTextFCComponentsProps {
-  lng: string;
+  lang: string;
   textTr: {
     [key: string]: any;
   };
 }
 export interface NavBarFCComponentsProps {
-  lng: string;
+  lang: string;
+  textTr: {
+    [key: string]: any;
+  };
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -52,6 +55,6 @@ export interface ShipList {
 }
 
 export interface LanguageShipComponentsProps {
-  lng: string;
+  lang: string;
   id: string;
 }

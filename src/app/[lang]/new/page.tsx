@@ -7,5 +7,5 @@ export default async function New({
   params: { lang: string };
 }) {
   const dict = await getDictionary(lang);
-  return <News textTr={dict.news} />;
+  return <News lang={lang} />;
 }
