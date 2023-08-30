@@ -1,4 +1,4 @@
-export const defaultLocale = "en-US";
+export const defaultLocale = "en";
 export const locales = ["en", "ua"] as const;
 export type ValidLocale = (typeof locales)[number];
 
@@ -16,22 +16,23 @@ type LocaleSource = PathnameLocale | ISOLocale;
 export const getLocalePartsFrom = ({ pathname, locale }: LocaleSource) => {
   if (locale) {
     const localeParts = locale.toLowerCase().split("-");
+    console.log("localeParts :>> ", locale, localeParts[0]);
     return {
       lang: localeParts[0],
-      country: localeParts[1],
     };
   } else {
     const pathnameParts = pathname!.toLowerCase().split("/");
     return {
       lang: pathnameParts[1],
-      country: pathnameParts[2],
     };
   }
 };
 
 const dictionaries: Record<ValidLocale, any> = {
-  en: () => import("dictionaries/mainen.json").then((module) => module.default),
-  ua: () => import("dictionaries/mainua.json").then((module) => module.default),
+  en: () =>
+    import("./src/dictionaries/mainen.json").then((module) => module.default),
+  ua: () =>
+    import("./src/dictionaries/mainua.json").then((module) => module.default),
 } as const;
 
 export const getTranslator = async (locale: ValidLocale) => {
