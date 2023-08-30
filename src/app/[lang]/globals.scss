@@ -31,7 +31,7 @@ html,
 body {
   background: var(--main-background);
   color: var(--main-font-color);
-  cursor: url("/assets/icon/cursor.png"), auto;
+  cursor: url("../../../public/assets/icon/cursor.png"), auto;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -52,7 +52,7 @@ a:focus,
 button:hover,
 button:focus,
 label:hover {
-  cursor: url("/assets/icon/cursor_hover.png"), auto;
+  cursor: url("../../../public/assets/icon/cursor_hover.png"), auto;
 }
 
 * {
