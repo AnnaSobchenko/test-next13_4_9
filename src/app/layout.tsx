@@ -22,6 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head />
       <body className={robotoCondensed.className}>{children}</body>
     </html>
   );
