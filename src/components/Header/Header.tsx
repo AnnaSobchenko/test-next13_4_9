@@ -1,5 +1,5 @@
 import { LngTextFCComponentsProps } from "@/interfaces/Props.interface";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import UpperHeader from "./UpperHeader/UpperHeader";
 import NavBar from "./NavBar/NavBar";
 

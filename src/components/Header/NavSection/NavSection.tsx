@@ -8,7 +8,7 @@ const myFont = localFont({
   src: "../../../../public/MyFont-Regular.otf",
   display: "swap",
 });
-const NavSection: FC<NavBarFCComponentsProps> = async ({
+const NavSection: FC<NavBarFCComponentsProps> = ({
   lang,
   setIsOpen,
   textTr,

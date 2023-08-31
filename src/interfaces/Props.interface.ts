@@ -58,3 +58,8 @@ export interface LanguageShipComponentsProps {
   lang: string;
   id: string;
 }
+
+export interface MainBtn {
+  text: string;
+  onClick: () => void;
+}

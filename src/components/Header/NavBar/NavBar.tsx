@@ -1,17 +1,29 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import localFont from "next/font/local";
 import LogoWiki from "public/assets/icon/logoWiki.svg";
+import NoAvatar from "public/assets/img/home/noavatar-desk-2x.png";
 import ButtonMain from "../../UI/ButtonMain/ButtonMain";
 import NavSection from "../NavSection/NavSection";
 import { FC, useState } from "react";
 import { LngTextFCComponentsProps } from "@/interfaces/Props.interface";
 import { usePathname } from "next/navigation";
 import NavItem from "../NavItem/NavItem";
-
+import ThreeVertDots from "@/components/UI/ThreeVertDots/ThreeVertDots";
+const myFont = localFont({
+  src: "../../../../public/MyFont-Regular.otf",
+  display: "swap",
+});
 const NavBar: FC<LngTextFCComponentsProps> = ({ textTr, lang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
+
+  console.log("isOpen :>> ", isOpen);
+
+  const toggleModal = (prev: boolean) => {
+    setIsOpen(!prev);
+  };
 
   return (
     <nav className={`layout bg-main-background `}>
@@ -19,21 +31,8 @@ const NavBar: FC<LngTextFCComponentsProps> = ({ textTr, lang }) => {
         <Link href={`/${lang}`} className=" opacity-60 h-16 w-24">
           <Image src={LogoWiki} alt="LogoWiki" height={68} width={103} />
         </Link>
-        {/* <div className={`flex items-center ml-20 lg:hidden `}>
-          <div className="flex flex-col justify-center items-center mr-6 hover:bg-accent-background focus:bg-accent-background">
-            <Link href={`/${lng}/signin`} className={s.link}>
-              <span className={s.text}>{t("headerLogIn")}</span>
-              <span>
-                <ThreeVertDots />
-              </span>
-            </Link>
-          </div>
-          <div className=" inline-block lg:hidden">
-            <ButtonMain text="Menu" />
-          </div>
-        </div> */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => toggleModal(isOpen)}
           className="block md:hidden relative h-5 w-6 cursor-pointer z-10 "
         >
           <span
@@ -71,8 +70,43 @@ const NavBar: FC<LngTextFCComponentsProps> = ({ textTr, lang }) => {
               href={`/${lang}/signin`}
               pathName={pathName}
             />
-            <ButtonMain text={textTr.headerPlayNow} />
+            <ButtonMain text={textTr.headerPlayNow} onClick={() => {}} />
           </div>
+        </div>
+        <div className="hidden md:flex  lg:hidden">
+          <div className="hidden md:flex lg:hidden items-center mr-11">
+            <Image
+              src={NoAvatar}
+              alt="Avatar"
+              height={45}
+              width={45}
+              className="mr-2"
+            />
+            <p className={`${myFont.className} mr-2`}>User name</p>
+            <ThreeVertDots />
+          </div>
+          {isOpen && (
+            <div
+              className={
+                isOpen
+                  ? " hidden md:flex bg-main-background w-screen h-screen z-10 lg:hidden absolute top-44 left-0"
+                  : "hidden"
+              }
+            >
+              <NavSection lang={lang} setIsOpen={setIsOpen} textTr={textTr} />
+            </div>
+          )}
+          {isOpen ? (
+            <ButtonMain
+              text={textTr.headerClose}
+              onClick={() => toggleModal(isOpen)}
+            />
+          ) : (
+            <ButtonMain
+              text={textTr.headerMenu}
+              onClick={() => toggleModal(isOpen)}
+            />
+          )}
         </div>
       </div>
     </nav>
