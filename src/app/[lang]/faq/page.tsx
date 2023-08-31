@@ -1,10 +1,12 @@
 import HeroForum from "../../../components/FAQ/HeroForum/HeroForum";
 import ThemesForum from "../../../components/FAQ/ThemesForum/ThemesForum";
+import { getDictionary } from "../dictionaries";
 
-const Forum = () => {
+const Forum = async ({ params: { lang } }: { params: { lang: string } }) => {
+  const dict = await getDictionary(lang);
   return (
     <div>
-      <HeroForum />
+      <HeroForum textTr={dict.faq} />
       <ThemesForum />
     </div>
   );
