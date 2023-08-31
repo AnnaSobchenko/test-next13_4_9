@@ -19,8 +19,6 @@ const NavBar: FC<LngTextFCComponentsProps> = ({ textTr, lang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
 
-  console.log("isOpen :>> ", isOpen);
-
   const toggleModal = (prev: boolean) => {
     setIsOpen(!prev);
   };

@@ -27,9 +27,9 @@ const NavSection: FC<NavBarFCComponentsProps> = ({
       />
 
       <NavItem
-        text={textTr.headerNavForum}
+        text={textTr.headerNavFAQ}
         setIsOpen={setIsOpen}
-        href={`/${lang}/forum`}
+        href={`/${lang}/faq`}
         pathName={pathName}
       />
       <NavItem
